@@ -57,9 +57,9 @@
 <!-- ============ TOPO ============ -->
 <header style="position: relative; z-index: 5">
   <div class="wrap" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 26px; padding-bottom: 10px">
-    <a href="#inicio" aria-label="Fernanda Strapazzon, início" style="display: inline-flex; align-items: center; gap: 14px; text-decoration: none; color: #1E2B24">
+    <a href="#inicio" class="topo-marca" aria-label="Fernanda Strapazzon, início" style="min-width: 0; display: inline-flex; align-items: center; gap: 14px; text-decoration: none; color: #1E2B24">
       <img src="img/icone.svg" alt="" style="flex: none; display: block; width: 44px; height: 44px; border-radius: 50%">
-      <span style="display: flex; flex-direction: column; gap: 4px">
+      <span class="topo-nome" style="display: flex; flex-direction: column; gap: 4px">
         <span style="font: 400 21px/1 Fraunces, serif; letter-spacing: -.02em">Fernanda Strapazzon</span>
         <span class="mono" style="font-size: 10.5px; letter-spacing: .24em; color: #5C6B62">FISIOTERAPIA DOMICILIAR</span>
       </span>
@@ -124,13 +124,23 @@
           <path d="{{ arcD }}" fill="rgba(184,100,62,.14)" stroke="#B8643E" stroke-width="2"></path>
           <line x1="200" y1="140" x2="{{ gx }}" y2="{{ gy }}" stroke="#2E4A3B" stroke-width="2" stroke-dasharray="4 7" opacity=".45"></line>
           <text x="{{ glx }}" y="{{ gly }}" fill="#2E4A3B" style="font: 500 11px 'Geist Mono', monospace" opacity=".7">meta 120°</text>
-          <line x1="40" y1="110" x2="200" y2="140" stroke="#C9D6C4" stroke-width="40" stroke-linecap="round"></line>
-          <line x1="200" y1="140" x2="{{ fx }}" y2="{{ fy }}" stroke="#2E4A3B" stroke-width="34" stroke-linecap="round"></line>
-          <line x1="{{ fx }}" y1="{{ fy }}" x2="{{ tx }}" y2="{{ ty }}" stroke="#2E4A3B" stroke-width="22" stroke-linecap="round"></line>
-          <circle cx="200" cy="140" r="21" fill="#FBF8F2" stroke="#B8643E" stroke-width="4"></circle>
-          <circle cx="200" cy="140" r="5" fill="#B8643E"></circle>
-          <circle class="{{ peCls }}" cx="{{ fx }}" cy="{{ fy }}" r="14" fill="#E8C872"></circle>
-          <circle cx="{{ fx }}" cy="{{ fy }}" r="9" fill="#E8C872" stroke="#1E2B24" stroke-width="2"></circle>
+          <g transform="{{ shinTf }}">
+            <path d="M0 -17 C34 -15 92 -12 132 -9 C137 -18 140 -29 141 -39 C141 -50 158 -51 158 -41 C158 -30 154 -18 156 -6 C158 6 152 16 142 14 C137 13 135 11 133 9 C104 12 74 23 44 23 C24 23 10 20 0 17 Z" fill="#EBC8A6" stroke="#C98F68" stroke-width="1.5" stroke-linejoin="round"></path>
+            <path d="M44 21 C70 19 100 12 128 9" fill="none" stroke="#C98F68" stroke-width="1.2" opacity=".45"></path>
+            <path d="M143 -42 C147 -44 152 -44 156 -42" stroke="#C98F68" stroke-width="1.2" stroke-linecap="round" opacity=".6"></path>
+          </g>
+          <g transform="translate(200 140) rotate({{ thDeg }})">
+            <path d="M0 -18 C-34 -23 -64 -31 -104 -29 L-150 -28 L-150 27 L-104 26 C-64 25 -28 22 0 18 Z" fill="#EBC8A6" stroke="#C98F68" stroke-width="1.5"></path>
+            <path d="M-112 -31 L-215 -31 L-215 31 L-112 29 C-108 10 -108 -12 -112 -31 Z" fill="#2E4A3B"></path>
+            <path d="M-112 -31 C-108 -12 -108 10 -112 29" fill="none" stroke="#1E2B24" stroke-width="2"></path>
+            <path d="M-96 -24 C-66 -27 -36 -22 -14 -18" fill="none" stroke="#C98F68" stroke-width="1.2" opacity=".45"></path>
+          </g>
+          <circle cx="200" cy="140" r="18.5" fill="#EBC8A6"></circle>
+          <ellipse cx="{{ patX }}" cy="{{ patY }}" rx="8.5" ry="6.5" transform="{{ patTf }}" fill="#F3D9BF" stroke="#C98F68" stroke-width="1.2" stroke-opacity=".7"></ellipse>
+          <circle cx="200" cy="140" r="5" fill="none" stroke="#B8643E" stroke-width="2.5"></circle>
+          <circle cx="200" cy="140" r="1.8" fill="#B8643E"></circle>
+          <circle class="{{ peCls }}" cx="{{ fx }}" cy="{{ fy }}" r="14" fill="#E8C872" opacity=".55"></circle>
+          <circle cx="{{ fx }}" cy="{{ fy }}" r="8" fill="#E8C872" stroke="#1E2B24" stroke-width="2"></circle>
         </svg>
         <div style="padding: 0 26px 24px; display: flex; flex-direction: column; gap: 10px; pointer-events: none">
           <div style="display: flex; justify-content: space-between" class="mono"><span style="color: #5C6B62">1ª visita · 30°</span><span style="color: #9A4E2C">alta · 120°</span></div>
@@ -921,6 +931,9 @@ class Component extends DCLogic {
     var a1 = pol(A0, 64), a2 = pol(dir, 64);
     var arcD = 'M' + KX + ' ' + KY + ' L' + a1[0].toFixed(1) + ' ' + a1[1].toFixed(1) + ' A64 64 0 0 1 ' + a2[0].toFixed(1) + ' ' + a2[1].toFixed(1) + ' Z';
     var g = pol(A0 + rad(120), L), gl = pol(A0 + rad(120), L + 22);
+    var pd = A0 + rad(ang / 2) - Math.PI / 2, pat = pol(pd, 12.5);
+    var shinTf = 'translate(200 140) rotate(' + (dir * 180 / Math.PI).toFixed(2) + ')';
+    var thDeg = (A0 * 180 / Math.PI).toFixed(2), patTf = 'rotate(' + (pd * 180 / Math.PI + 90).toFixed(1) + ' ' + pat[0].toFixed(1) + ' ' + pat[1].toFixed(1) + ')';
     var ticks = [];
     for (var d = 0; d <= 135; d += 15) { var p1 = pol(A0 + rad(d), 96), p2 = pol(A0 + rad(d), d % 45 ? 104 : 112); ticks.push({ x1: p1[0].toFixed(1), y1: p1[1].toFixed(1), x2: p2[0].toFixed(1), y2: p2[1].toFixed(1), c: d <= ang ? '#B8643E' : 'rgba(30,43,36,.18)' }); }
     var stTxt, stBg, stFg;
@@ -995,7 +1008,7 @@ class Component extends DCLogic {
       menuOpen: st.menu, openMenu: function () { self.setState({ menu: true }); }, closeMenu: function () { self.setState({ menu: false }); },
 
       angTxt: String(ang), pct: Math.min(100, Math.max(0, (ang - 0) / 120 * 100)).toFixed(0) + '%',
-      fx: foot[0].toFixed(1), fy: foot[1].toFixed(1), tx: toe[0].toFixed(1), ty: toe[1].toFixed(1), arcD: arcD,
+      fx: foot[0].toFixed(1), fy: foot[1].toFixed(1), shinTf: shinTf, thDeg: thDeg, patX: pat[0].toFixed(1), patY: pat[1].toFixed(1), patTf: patTf, tx: toe[0].toFixed(1), ty: toe[1].toFixed(1), arcD: arcD,
       gx: g[0].toFixed(1), gy: g[1].toFixed(1), glx: (gl[0] - 30).toFixed(1), gly: (gl[1] + 6).toFixed(1), ticks: ticks,
       stTxt: stTxt, stBg: stBg, stFg: stFg, stCls: 'mono', peCls: st.touched ? '' : 'pe', gonDown: gonDown,
 
@@ -1013,7 +1026,7 @@ class Component extends DCLogic {
       },
       cardLeave: function (e) { var el = e.currentTarget; el.style.removeProperty('--rx'); el.style.removeProperty('--ry'); },
 
-      spots: SPOTS.map(function (s) { var on = st.spot === s.k; return { label: s.label, x: s.x, y: s.y, cls: 'hs' + (on ? ' on' : ''), pressed: on ? 'true' : 'false', pick: function () { self.setState({ spot: s.k }); } }; }),
+      spots: SPOTS.map(function (s) { var on = st.spot === s.k; return { label: s.label, x: s.x, y: s.y, cls: 'hs' + (s.x > 55 ? ' esq' : s.x >= 45 ? ' mid' : '') + (on ? ' on' : ''), pressed: on ? 'true' : 'false', pick: function () { self.setState({ spot: s.k }); } }; }),
       inteiroCls: 'reg' + (st.spot === 'inteiro' ? ' on' : ''), pickInteiro: function () { self.setState({ spot: 'inteiro' }); },
       bKey: sel.k, bTag: sel.tag, bTitle: sel.title, bConds: sel.conds, bHow: sel.how,
       bHref: wa('Oi, Fernanda! Vi no seu site a parte sobre ' + sel.title.toLowerCase() + ' e gostaria de conversar sobre uma avaliação em casa.'),
