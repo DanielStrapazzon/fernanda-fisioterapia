@@ -157,15 +157,26 @@
 </section>
 
 <!-- ================= ASSINATURA ================= -->
-<section class="marca" id="fs-marca" aria-label="Fernanda" sc-camel-on-pointer-move="{{ markMove }}" sc-camel-on-pointer-leave="{{ markLeave }}">
-  <div class="m-txt" aria-hidden="true">
-    <sc-for list="{{ letters }}" as="l" hint-placeholder-count="8">
-      <span class="ml" data-fl="{{ l.i }}">{{ l.c }}</span>
-    </sc-for>
-  </div>
-  <div class="wrap" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-top: 6px">
-    <span class="mono" style="color: #5C6B62">fisioterapeuta · CREFITO-10 nº 379725-F</span>
-    <span class="mono" style="color: #5C6B62">passe o mouse no nome</span>
+<section class="marca" id="fs-marca" aria-label="Fernanda Strapazzon, fisioterapeuta">
+  <div class="wrap">
+    <div class="ass">
+      <div class="ass-id">
+        <span class="ass-logo"><img src="img/icone.svg" alt="Logo Fernanda Strapazzon"></span>
+        <div class="ass-nome">
+          <span class="mono ass-kick">Fisioterapeuta responsável</span>
+          <span class="ass-n">Fernanda <span class="ser">Strapazzon</span></span>
+          <span class="ass-sub">FISIOTERAPIA DOMICILIAR</span>
+        </div>
+      </div>
+      <ul class="ass-cred">
+        <li><b>CREFITO-10</b><span>nº 379725-F</span></li>
+        <li><b>Em domicílio</b><span>avaliação e sessões na sua casa</span></li>
+        <li><b>Serra Alta · Saltinho · Modelo</b><span>e cidades vizinhas em SC</span></li>
+      </ul>
+    </div>
+    <svg class="ass-linha" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 44 C 160 46, 300 40, 390 30 C 470 21, 500 8, 470 12 C 440 16, 445 40, 520 44 C 640 51, 900 40, 1188 22" pathLength="100" fill="none" stroke="#E8C872" stroke-width="2.6" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+    </svg>
   </div>
 </section>
 

@@ -49,9 +49,28 @@ button:focus-visible,a:focus-visible{outline:2px solid #B8643E;outline-offset:3p
 .flut{position:absolute;padding:10px 14px;border-radius:16px;background:#fff;border:1px solid rgba(30,43,36,.08);box-shadow:0 14px 30px rgba(46,74,59,.12);font-size:13px;display:flex;align-items:center;gap:8px;animation:boia 6s ease-in-out infinite}
 @keyframes boia{50%{transform:translateY(-8px)}}
 
-.marca{position:relative;padding:10px 0 30px;overflow:clip;cursor:crosshair}
-.m-txt{display:flex;justify-content:center;font:300 clamp(56px,min(calc((100vw - 40px) / 3.6),max(19vw,110px)),300px)/1 Fraunces,Georgia,serif;letter-spacing:-.045em;user-select:none;color:#2E4A3B;font-variation-settings:"wght" 300,"SOFT" 100,"opsz" 144}
-.ml{display:inline-block;transition:color .3s}
+.marca{position:relative;padding:24px 0 56px}
+.ass{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:36px 56px;padding:40px 44px;border-radius:28px;background:#FBF8F2;border:1px solid rgba(46,74,59,.12);box-shadow:0 24px 60px -30px rgba(30,43,36,.35)}
+.ass-id{display:flex;align-items:center;gap:28px;min-width:0}
+.ass-logo{flex:none;width:118px;height:118px;border-radius:50%;padding:6px;background:#F3EEE4;box-shadow:0 0 0 1px rgba(232,200,114,.7),0 14px 34px -12px rgba(46,74,59,.55)}
+.ass-logo img{display:block;width:100%;height:100%;border-radius:50%}
+.ass-nome{display:flex;flex-direction:column;gap:10px;min-width:0}
+.ass-kick{color:#9A4E2C;text-transform:uppercase;letter-spacing:.18em;font-size:11px}
+.ass-n{font:400 clamp(34px,4.4vw,60px)/1 Fraunces,Georgia,serif;letter-spacing:-.03em;color:#1E2B24;font-variation-settings:"opsz" 144}
+.ass-n .ser{color:#2E4A3B}
+.ass-sub{font:400 12px/1 "Geist Mono",ui-monospace,monospace;letter-spacing:.34em;color:#5C6B62}
+.ass-cred{list-style:none;margin:0;padding:0 0 0 40px;display:flex;flex-direction:column;gap:16px;border-left:1px solid rgba(46,74,59,.15)}
+.ass-cred li{display:flex;flex-direction:column;gap:3px}
+.ass-cred b{font:500 16px/1.2 "Instrument Sans",system-ui,sans-serif;color:#1E2B24}
+.ass-cred span{font-size:14px;color:#5C6B62}
+.ass-linha{display:block;width:100%;height:46px;margin-top:16px;overflow:visible}
+@supports (animation-timeline:view()){
+.ass-linha path{stroke-dasharray:100;animation:tracar linear both;animation-timeline:view();animation-range:entry 10% cover 45%}
+}
+@keyframes tracar{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
+@media (max-width:900px){.ass{padding:30px 26px;border-radius:22px}.ass-cred{padding:22px 0 0;border-left:0;border-top:1px solid rgba(46,74,59,.15);width:100%}}
+@media (max-width:520px){.ass-id{flex-direction:column;align-items:flex-start;gap:20px}.ass-logo{width:92px;height:92px}.ass-sub{letter-spacing:.24em}}
+@media (prefers-reduced-motion:reduce){.ass-linha path{animation:none}}
 
 .casa{position:relative;height:2900px}
 .casa-fx{position:sticky;top:0;height:min(100vh,940px);display:flex;flex-direction:column;justify-content:center;gap:30px;overflow:hidden;background:#1F3329;color:#F3EEE4}
