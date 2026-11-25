@@ -4,7 +4,7 @@
 (function () {
   if (!('IntersectionObserver' in window)) return;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  document.documentElement.classList.add('rv');
+  document.documentElement.classList.add('fx-rv');
 
   function mostra(el) {
     io.unobserve(el);
@@ -68,6 +68,7 @@
     var secs = document.querySelectorAll('main section, body section, footer.rod');
     Array.prototype.forEach.call(secs, function (s) {
       if (s.id === 'inicio') return; // topo já aparece com a página
+      if (s.querySelector('#fs-ass-stage')) return; // a faixa de assinatura tem animação própria
       blocos(s);
     });
   }

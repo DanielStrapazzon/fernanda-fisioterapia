@@ -421,5 +421,5 @@ img,svg{max-width:100%}
 .ass-dica .d-t{display:none}@media (hover:none){.ass-dica .d-m{display:none}.ass-dica .d-t{display:inline}}
 
 /* Revelar com desfoque ao rolar (js/reveal.js) */
-html.rv [data-rv]{opacity:0;translate:0 26px;filter:blur(6px);transition:opacity .9s cubic-bezier(.22,1,.36,1),translate .9s cubic-bezier(.22,1,.36,1),filter .9s cubic-bezier(.22,1,.36,1);transition-delay:var(--rv-d,0s)}
-html.rv [data-rv][data-rv-in]{opacity:1;translate:0 0;filter:blur(0)}
+html.fx-rv [data-rv]{opacity:0;translate:0 26px;filter:blur(6px);transition:opacity .9s cubic-bezier(.22,1,.36,1),translate .9s cubic-bezier(.22,1,.36,1),filter .9s cubic-bezier(.22,1,.36,1);transition-delay:var(--rv-d,0s)}
+html.fx-rv [data-rv][data-rv-in]{opacity:1;translate:0 0;filter:blur(0)}
