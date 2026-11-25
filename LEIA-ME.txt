@@ -1,0 +1,23 @@
+Site Fernanda Strapazzon - Fisioterapia Domiciliar
+
+Para publicar: envie a pasta inteira (index.html + css/ fonts/ img/ js/)
+para a raiz da hospedagem. Funciona em qualquer hospedagem estática
+(Hostinger, Netlify, Vercel, GitHub Pages etc.).
+
+Onde editar:
+- Textos e estrutura ......... index.html
+- Dados (cômodos, regiões do corpo, dúvidas, número do WhatsApp)
+                              ... bloco <script type="text/x-dc"> no fim do index.html
+                                  (WhatsApp: var WA = '5549988126694')
+- Cores e estilos ............ css/site.css
+- Fontes ..................... css/fonts.css + fonts/ (licença em fonts/OFL.txt,
+                                  mantenha esse arquivo junto das fontes)
+- Foto ....................... img/fernanda.jpg
+
+Depois de ter o domínio, troque em index.html:
+  <meta property="og:image" content="img/fernanda.jpg">
+por o endereço completo, ex.: https://seudominio.com.br/img/fernanda.jpg
+(o WhatsApp só mostra a foto na prévia do link com o endereço completo).
+
+Obs.: abrir o index.html com duplo clique pode não funcionar em alguns
+navegadores; teste por um servidor local ou já na hospedagem.
