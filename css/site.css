@@ -349,3 +349,14 @@ to{transform:scale(2.2);opacity:0}}
 .silh{min-height:520px}}
 @media (prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition:none!important}}
 
+
+/* Antes e depois: ícones do controle e versão vertical no celular */
+.ad-h span svg{display:block}.ad-ic-v{display:none!important}
+@media (max-width:900px){
+.ad{cursor:ns-resize}
+.ad-l{padding-right:76px}
+.ad-d{clip-path:inset(var(--cut) 0 0 0)}
+.ad-h{top:var(--cut);bottom:auto;left:0;right:0;width:auto;height:2px;margin:-1px 0 0}
+.ad-h span{left:auto;right:14px;top:50%;transform:translateY(-50%);width:48px;height:48px;touch-action:none;box-shadow:0 6px 18px rgba(30,43,36,.25)}
+.ad-ic-h{display:none!important}.ad-ic-v{display:block!important}
+}

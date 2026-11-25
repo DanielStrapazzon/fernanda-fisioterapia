@@ -401,7 +401,7 @@
         <div class="ad-row" style="border-color: rgba(243,238,228,.2)"><small>dor</small><span>2 de 10, só no fim do dia</span></div>
         <div class="ad-row" style="border-color: rgba(243,238,228,.2)"><small>confiança</small><span>Toma banho e se veste sem ajuda</span></div>
       </div>
-      <div class="ad-h" aria-hidden="true"><span>⇆</span></div>
+      <div class="ad-h" aria-hidden="true"><span><svg class="ad-ic-h" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg><svg class="ad-ic-v" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6-6 6 6M6 15l6 6 6-6"/></svg></span></div>
     </div>
     <p class="mono" style="text-align: center; color: #5C6B62; margin: 16px 0 0">exemplo ilustrativo · cada caso tem o seu ritmo</p>
   </div>
@@ -1037,7 +1037,8 @@ class Component extends DCLogic {
 
       adDown: function (e) {
         var el = e.currentTarget;
-        var mv = function (ev) { var r = el.getBoundingClientRect(); var p = Math.max(4, Math.min(96, (ev.clientX - r.left) / r.width * 100)); el.style.setProperty('--cut', p.toFixed(1) + '%'); };
+        var vert = window.matchMedia('(max-width: 900px)').matches;
+        var mv = function (ev) { var r = el.getBoundingClientRect(); var f = vert ? (ev.clientY - r.top) / r.height : (ev.clientX - r.left) / r.width; var p = Math.max(4, Math.min(96, f * 100)); el.style.setProperty('--cut', p.toFixed(1) + '%'); };
         mv(e);
         var up = function () { window.removeEventListener('pointermove', mv); window.removeEventListener('pointerup', up); };
         window.addEventListener('pointermove', mv); window.addEventListener('pointerup', up);
