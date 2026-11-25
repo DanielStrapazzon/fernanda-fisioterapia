@@ -49,8 +49,11 @@ button:focus-visible,a:focus-visible{outline:2px solid #B8643E;outline-offset:3p
 .flut{position:absolute;padding:10px 14px;border-radius:16px;background:#fff;border:1px solid rgba(30,43,36,.08);box-shadow:0 14px 30px rgba(46,74,59,.12);font-size:13px;display:flex;align-items:center;gap:8px;animation:boia 6s ease-in-out infinite}
 @keyframes boia{50%{transform:translateY(-8px)}}
 
-.marca{position:relative;padding:40px 0 70px}
-.ass{position:relative;isolation:isolate;overflow:hidden;border-radius:32px;background:radial-gradient(120% 90% at 0% 0%,#2E4A3B 0%,#1F3329 45%,#17271F 100%);color:#F3EEE4;padding:78px 64px 70px;min-height:620px;box-shadow:0 40px 90px -40px rgba(23,39,31,.75),inset 0 0 0 1px rgba(232,200,114,.14);touch-action:pan-y}
+.marca{position:relative;margin-top:10px;background:#1F3329}
+.ass{position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(60% 70% at 50% 45%,#2B4536 0%,rgba(31,51,41,0) 70%),radial-gradient(40% 50% at 12% 30%,rgba(232,200,114,.07),transparent 70%),#1F3329;color:#F3EEE4;padding:200px 0 130px;touch-action:pan-y}
+.ass-onda{position:absolute;left:0;top:-1px;width:100%;height:140px;z-index:2;pointer-events:none}
+.ass-onda-l{stroke-dasharray:100;stroke-dashoffset:100;transition:stroke-dashoffset 2.2s cubic-bezier(.6,.1,.2,1)}
+.ass.on .ass-onda-l{stroke-dashoffset:0}
 .ass::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(rgba(243,238,228,.035) 1px,transparent 1px) 0 0/32px 32px,linear-gradient(90deg,rgba(243,238,228,.035) 1px,transparent 1px) 0 0/32px 32px;mask:radial-gradient(70% 70% at 50% 50%,#000,transparent)}
 .ass-cv{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
 .ass-glow{position:absolute;width:520px;height:520px;left:var(--gx,50%);top:var(--gy,50%);transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(232,200,114,.16),transparent 62%);pointer-events:none;z-index:0;transition:opacity .6s;opacity:var(--go,0)}
@@ -87,11 +90,11 @@ button:focus-visible,a:focus-visible{outline:2px solid #B8643E;outline-offset:3p
 .ass-cred div{display:flex;flex-direction:column;gap:4px}
 .ass-cred b{font:500 16px/1.25 "Instrument Sans",system-ui,sans-serif;color:#F3EEE4}
 .ass-cred div span{font-size:14.5px;color:rgba(243,238,228,.62)}
-.ass-dica{position:absolute;z-index:1;left:50%;bottom:26px;translate:-50% 0;display:inline-flex;align-items:center;gap:10px;font:400 11px/1 "Geist Mono",ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:rgba(243,238,228,.5);white-space:nowrap}
+.ass-dica{position:absolute;z-index:1;left:50%;bottom:34px;translate:-50% 0;display:inline-flex;align-items:center;gap:10px;font:400 11px/1 "Geist Mono",ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:rgba(243,238,228,.5);white-space:nowrap}
 .ass-dica i{width:7px;height:7px;border-radius:50%;background:#E8C872;box-shadow:0 0 0 0 rgba(232,200,114,.6);animation:pulsa 2s infinite}
 @keyframes pulsa{70%{box-shadow:0 0 0 10px rgba(232,200,114,0)}100%{box-shadow:0 0 0 0 rgba(232,200,114,0)}}
-@media (max-width:1100px){.ass{padding:64px 40px 70px}.ass-selo{width:270px;height:270px}.ass-disco{inset:54px}.ass-ring text{font-size:16px}}
-@media (max-width:900px){.ass{padding:56px 26px 74px;border-radius:24px;min-height:0}.ass-grid{grid-template-columns:1fr;justify-items:center;text-align:center;gap:34px}.ass-selo{order:-1}.ass-p{margin:0 auto}.ass-cred{justify-self:center;text-align:left}.ass-dica{bottom:24px}}
+@media (max-width:1100px){.ass{padding:180px 0 120px}.ass-selo{width:270px;height:270px}.ass-disco{inset:54px}.ass-ring text{font-size:16px}}
+@media (max-width:900px){.ass{padding:120px 0 100px}.ass-onda{height:80px}.ass-grid{grid-template-columns:1fr;justify-items:center;text-align:center;gap:34px}.ass-selo{order:-1}.ass-p{margin:0 auto}.ass-cred{justify-self:center;text-align:left}.ass-dica{bottom:24px}}
 @media (max-width:480px){.ass-selo{width:250px;height:250px}.ass-disco{inset:50px}.ass-dica{font-size:9.5px;letter-spacing:.1em}}
 @media (prefers-reduced-motion:reduce){.ass-ring,.ass-ring2{animation:none}}
 
@@ -415,3 +418,4 @@ img,svg{max-width:100%}
 .geo-leg{flex-wrap:wrap;row-gap:6px}
 @media (max-width:600px){.cmd{padding:clamp(5px,1.8vw,14px);gap:4px}.cmd span{font-size:clamp(10.5px,3.1vw,15px)}.cmd b{font-size:10.5px}.geo-leg .mono{margin-left:0!important}}
 @media (max-width:480px){.topo-nome{display:none!important}header .btn.sm{white-space:nowrap}}
+.ass-dica .d-t{display:none}@media (hover:none){.ass-dica .d-m{display:none}.ass-dica .d-t{display:inline}}

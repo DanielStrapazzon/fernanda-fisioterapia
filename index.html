@@ -14,7 +14,7 @@
 <link rel="preload" href="fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/fonts.css?v=3">
-<link rel="stylesheet" href="css/site.css?v=3">
+<link rel="stylesheet" href="css/site.css?v=5">
 <style>x-dc{display:none}</style>
 <script src="js/react.production.min.js"></script>
 <script src="js/react-dom.production.min.js"></script>
@@ -158,11 +158,11 @@
 
 <!-- ================= ASSINATURA ================= -->
 <section class="marca" id="fs-ass" aria-label="Fernanda Strapazzon, fisioterapeuta">
-  <div class="wrap">
     <div class="ass" id="fs-ass-stage">
+      <svg class="ass-onda" viewBox="0 0 1440 140" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0H1440V52C1180 46 1010 128 740 118C470 108 300 44 0 78Z" fill="#F3EEE4"/><path class="ass-onda-l" pathLength="100" d="M0 78C300 44 470 108 740 118C1010 128 1180 46 1440 52" fill="none" stroke="#E8C872" stroke-width="2" vector-effect="non-scaling-stroke"/></svg>
       <canvas class="ass-cv" id="fs-ass-cv" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none"></canvas>
       <div class="ass-glow" aria-hidden="true"></div>
-      <div class="ass-grid">
+      <div class="wrap"><div class="ass-grid">
         <div class="ass-esq">
           <span class="ass-kick rv-f" style="--d:.05s"><i></i>Fisioterapeuta responsável</span>
           <h2 class="ass-n"><span class="rv"><span style="--d:.12s">Fernanda</span></span><span class="rv"><span class="ass-it" style="--d:.24s">Strapazzon</span></span></h2>
@@ -183,10 +183,9 @@
           <li class="rv-f" style="--d:.62s"><span class="ass-num">02</span><div><b>Especialidades</b><span>Pós-operatório, neurologia e idosos</span></div></li>
           <li class="rv-f" style="--d:.74s"><span class="ass-num">03</span><div><b>Onde atende</b><span>Serra Alta, Saltinho, Modelo e região</span></div></li>
         </ol>
-      </div>
-      <span class="ass-dica rv-f" style="--d:1s"><i></i>mova o cursor sobre as linhas douradas</span>
+      </div></div>
+      <span class="ass-dica rv-f" style="--d:1s"><i></i><span class="d-m">mova o cursor sobre as linhas douradas</span><span class="d-t">toque e arraste sobre as linhas douradas</span></span>
     </div>
-  </div>
 </section>
 
 <!-- ================= A CASA VIRA CLÍNICA ================= -->
@@ -1169,8 +1168,8 @@ class Component extends DCLogic {
     S.addEventListener('touchend', function () { M.inside = false; });
   }
   function baseY(k, x, t) {
-    var u = x / W, mid = H * (W < 900 ? .5 : .56);
-    var wave = Math.sin(u * Math.PI * 1.6 + .6) * H * .09 + Math.sin(u * Math.PI * 3.4 - t * .35) * H * .025;
+    var u = x / W, mid = H * (W < 900 ? .2 : .85);
+    var wave = Math.sin(u * Math.PI * 1.6 + .6) * Math.min(H * .06, 46) + Math.sin(u * Math.PI * 3.4 - t * .35) * Math.min(H * .02, 16);
     var twist = Math.sin(u * Math.PI * 2.2 + t * .45) * (k - (NL - 1) / 2) * (W < 600 ? 9 : 15);
     return mid + wave + twist;
   }
